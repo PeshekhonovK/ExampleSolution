@@ -1,0 +1,5 @@
+Enable-Migrations
+Update-Database -Verbose
+Add-Migration
+
+https://msdn.microsoft.com/en-us/library/jj591621(v=vs.113).aspx

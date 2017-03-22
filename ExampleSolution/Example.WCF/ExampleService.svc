@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Example.WCF.ExampleService" CodeBehind="ExampleService.svc.cs" Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>
