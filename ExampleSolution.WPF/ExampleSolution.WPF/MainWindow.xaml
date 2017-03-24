@@ -1,0 +1,45 @@
+﻿<Window x:Class="ExampleSolution.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleSolution.WPF"
+        xmlns:viewModels="clr-namespace:ExampleSolution.WPF.ViewModels"
+        xmlns:models="clr-namespace:ExampleSolution.WPF.Models"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="525">
+    <Window.DataContext>
+        <viewModels:DepartmentsListViewModel></viewModels:DepartmentsListViewModel>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <ListBox Height="450" Width="200" Name="DeparmentsList" ItemsSource="{ Binding Departments, Mode=TwoWay }" Margin="0,10" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,10,0,0">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Height="500" Width="200">
+                <Label Content="Department Name"></Label>
+                <TextBox Text="{Binding SelectedItem.(models:Department.Name), ElementName=DeparmentsList, Mode=TwoWay}"></TextBox>
+                <Label Content="Employees"></Label>
+                <ListBox Name="Employees" ItemsSource="{Binding SelectedItem.(models:Department.Employees), ElementName=DeparmentsList, Mode=TwoWay}" Height="300" MaxHeight="300">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Label Content="{Binding (models:Employee.LastName)}"></Label>
+                                <Label Content="{Binding (models:Employee.FirstName)}"></Label>
+                                <Label Content="{Binding (models:Employee.MiddleName)}"></Label>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Command="{Binding AddEmployeeCommand}" CommandParameter="{Binding SelectedItem, ElementName=DeparmentsList}" Content="Add Employee"></Button>
+                <Button Command="{Binding SaveDepartmentCommand}" CommandParameter="{Binding SelectedItem, ElementName=DeparmentsList}" Content="Save Department"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

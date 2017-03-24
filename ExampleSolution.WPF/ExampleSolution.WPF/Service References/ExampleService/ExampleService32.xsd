@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Example.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Example.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50503/ExampleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfEmployeeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeDTO" nillable="true" type="tns:EmployeeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeDTO" nillable="true" type="tns:ArrayOfEmployeeDTO" />
+  <xs:complexType name="EmployeeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnBoardDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Salary" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VacationDays" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeDTO" nillable="true" type="tns:EmployeeDTO" />
+  <xs:complexType name="DepartmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:ArrayOfEmployeeDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentDTO" nillable="true" type="tns:DepartmentDTO" />
+  <xs:complexType name="ArrayOfDepartmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentDTO" nillable="true" type="tns:DepartmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentDTO" nillable="true" type="tns:ArrayOfDepartmentDTO" />
+</xs:schema>
