@@ -75,7 +75,7 @@ namespace Example.DAL
         {
             using (var context = new ExampleContext())
             {
-                return context.Departments.ToArray().Select(x => x.MapToModel()).ToArray();
+                return context.Departments.Include(nameof(Department.Employees)).ToArray().Select(x => x.MapToModel()).ToArray();
             }
         }
 

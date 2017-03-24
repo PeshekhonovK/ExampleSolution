@@ -5,19 +5,16 @@ using System;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace Example.API.Controllers
 {
     public class DepartmentController : ApiController
     {
         private readonly IDepartmentBLL departmentBLL;
-        private readonly IEmployeeBLL employeeBLL;
 
-        public DepartmentController(IDepartmentBLL departmentBll, IEmployeeBLL employeeBll)
+        public DepartmentController(IDepartmentBLL departmentBll)
         {
             this.departmentBLL = departmentBll;
-            employeeBLL = employeeBll;
         }
 
         [MethodDebugFilter]

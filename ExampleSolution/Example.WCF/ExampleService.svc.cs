@@ -43,5 +43,15 @@ namespace Example.WCF
 
             return new DepartmentDTO().MapFromModel(newDepartment);
         }
+
+        public ICollection<DepartmentDTO> GetDepartments()
+        {
+            return this.departmentBLL.GetAll().Select(x => new DepartmentDTO().MapFromModel(x)).ToArray();
+        }
+
+        public DepartmentDTO UpdateDepartment(DepartmentDTO department)
+        {
+            return new DepartmentDTO().MapFromModel(this.repository.Save(department.MapToModel()));
+        }
     }
 }

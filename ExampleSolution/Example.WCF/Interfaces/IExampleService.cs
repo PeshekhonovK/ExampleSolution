@@ -16,5 +16,11 @@ namespace Example.WCF.Interfaces
 
         [OperationContract]
         DepartmentDTO CreateNewDepartment(string name);
+
+        [OperationContract]
+        ICollection<DepartmentDTO> GetDepartments();
+
+        [OperationContract]
+        DepartmentDTO UpdateDepartment(DepartmentDTO department);
     }
 }
