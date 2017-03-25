@@ -3,6 +3,7 @@ using ExampleSolution.WPF.ExampleService;
 using ExampleSolution.WPF.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace ExampleSolution.WPF.DataAccess
@@ -17,13 +18,13 @@ namespace ExampleSolution.WPF.DataAccess
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Employees = x.Employees.Select(e => new Employee
+                    Employees = new ObservableCollection<Employee>(x.Employees.Select(e => new Employee
                     {
                         Id = e.Id,
                         FirstName = e.FirstName,
                         MiddleName = e.MiddleName,
                         LastName = e.LastName,
-                    }).ToList()
+                    }).ToList())
                 }).ToArray();
             }
         }

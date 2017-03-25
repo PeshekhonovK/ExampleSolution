@@ -24,15 +24,15 @@
             </ListBox>
             <StackPanel Height="500" Width="200">
                 <Label Content="Department Name"></Label>
-                <TextBox Text="{Binding SelectedItem.(models:Department.Name), ElementName=DeparmentsList, Mode=TwoWay}"></TextBox>
+                <TextBox Text="{Binding SelectedItem.Name, ElementName=DeparmentsList, Mode=TwoWay}"></TextBox>
                 <Label Content="Employees"></Label>
-                <ListBox Name="Employees" ItemsSource="{Binding SelectedItem.(models:Department.Employees), ElementName=DeparmentsList, Mode=TwoWay}" Height="300" MaxHeight="300">
+                <ListBox Name="Employees" ItemsSource="{Binding SelectedItem.Employees, ElementName=DeparmentsList, Mode=TwoWay}" Height="300" MaxHeight="300">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <DockPanel>
-                                <Label Content="{Binding (models:Employee.LastName)}"></Label>
-                                <Label Content="{Binding (models:Employee.FirstName)}"></Label>
-                                <Label Content="{Binding (models:Employee.MiddleName)}"></Label>
+                                <Label Content="{Binding LastName}"></Label>
+                                <Label Content="{Binding FirstName}"></Label>
+                                <Label Content="{Binding MiddleName}"></Label>
                             </DockPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
