@@ -2,17 +2,18 @@
 using ExampleSolution.MVC.Models;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace ExampleSolution.MVC.Controllers
 {
     public class EmployeeController : Controller
     {
-        public ActionResult Employee(Guid? employeeId, Guid departmentId)
+        public async Task<ActionResult> Employee(Guid? employeeId, Guid departmentId)
         {
             using (var service = new ExampleServiceClient())
             {
-                var employee = employeeId.HasValue ? new Employee().MapFrom(service.GetEmployee(employeeId.Value)) : null;
+                var employee = employeeId.HasValue ? new Employee().MapFrom(await service.GetEmployeeAsync(employeeId.Value)) : null;
 
                 var model = new EditEmployeeModel
                 {
@@ -30,22 +31,30 @@ namespace ExampleSolution.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(EditEmployeeModel employee)
+        public async Task<ActionResult> Save(EditEmployeeModel employee)
         {
             using (var service = new ExampleServiceClient())
             {
-                var dto = new EmployeeDTO
+                if (this.ModelState.IsValid)
                 {
-                    Id = employee.Id,
-                    FirstName = employee.FirstName,
-                    LastName = employee.LastName,
-                    MiddleName = employee.MiddleName
-                };
+                    var dto = new EmployeeDTO
+                    {
+                        Id = employee.Id,
+                        FirstName = employee.FirstName,
+                        LastName = employee.LastName,
+                        MiddleName = employee.MiddleName
+                    };
 
-                service.SaveEmployee(dto, service.GetDepartmentById(employee.DepartmentId));
+                    await service.SaveEmployeeAsync(dto, service.GetDepartmentById(employee.DepartmentId));
+
+                    return this.RedirectToAction("EmployeeList", "Departments", new { departmentId = employee.CurrentDepartmentId });
+                }
+
+                var availableDepartmentsDTO = await service.GetDepartmentsAsync();
+                employee.AvailableDepartments = availableDepartmentsDTO.Select(x => new Department().MapFrom(x)).ToArray();
+
+                return this.View("Employee", employee);
             }
-
-            return this.RedirectToAction("EmployeeList", "Departments", new { departmentId = employee.CurrentDepartmentId });
         }
     }
 }

@@ -4,20 +4,59 @@
 }
 
 @model ExampleSolution.MVC.Models.EditEmployeeModel
-    
+
 @using (Html.BeginForm("Save", "Employee", FormMethod.Post, new { @class = "form-group" }))
 {
     <fieldset>
         <legend>Employee</legend>
+
         @Html.HiddenFor(x => x.Id)
         @Html.HiddenFor(x => x.CurrentDepartmentId)
-        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
-        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
-        @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control" })
-        @Html.TextBoxFor(x => x.Salary, new { @class = "form-control" })
-        @Html.DropDownListFor(x => x.DepartmentId, Model.AvailableDepartments.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }), new { @class = "form-control" })
+        <div class="form-group">
+            <div class="col-lg-2">
+                @Html.LabelFor(x => x.LastName)
+            </div>
+            <div class="col-lg-10">
+                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.LastName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                @Html.LabelFor(x => x.FirstName)
+            </div>
+            <div class="col-lg-10">
+                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.FirstName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                @Html.LabelFor(x => x.MiddleName)
+            </div>
+            <div class="col-lg-10">
+                @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.MiddleName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                @Html.LabelFor(x => x.Salary)
+            </div>
+            <div class="col-lg-10">
+                @Html.TextBoxFor(x => x.Salary, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Salary)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2">
+                @Html.LabelFor(x => x.DepartmentId)
+            </div>
+            <div class="col-lg-10">
+                @Html.DropDownListFor(x => x.DepartmentId, Model.AvailableDepartments.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }), new { @class = "form-control" })
+            </div>
+        </div>
     </fieldset>
 
     <input type="submit" value="Save">
 }
-

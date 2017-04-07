@@ -2,25 +2,30 @@
 using ExampleSolution.MVC.Models;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace ExampleSolution.MVC.Controllers
 {
     public class DepartmentsController : Controller
     {
-        public ActionResult Departments()
+        public async Task<ActionResult> Departments()
         {
             using (var service = new ExampleServiceClient())
             {
-                return this.View(service.GetDepartments().Select(x => new Department().MapFrom(x)).ToArray());
+                var departments = await service.GetDepartmentsAsync();
+
+                return this.View(departments.Select(x => new Department().MapFrom(x)).ToArray());
             }
         }
 
-        public ActionResult EmployeeList(Guid departmentId)
+        public async Task<ActionResult> EmployeeList(Guid departmentId)
         {
             using (var service = new ExampleServiceClient())
             {
-                return this.View(new Department().MapFrom(service.GetDepartmentById(departmentId)));
+                var department = await service.GetDepartmentByIdAsync(departmentId);
+
+                return this.View(new Department().MapFrom(department));
             }
         }
     }
