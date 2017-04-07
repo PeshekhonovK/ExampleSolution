@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ICollection<ExampleSolution.MVC.Models.Department>
+
+<h1>Departments</h1>
+
+<div class="list-group">
+    @foreach (var department in Model)
+    {
+        @Html.ActionLink(department.Name, "EmployeeList", new { departmentId = department.Id }, new { @class = "list-group-item" })
+    }
+</div>

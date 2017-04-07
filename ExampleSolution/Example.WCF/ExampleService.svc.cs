@@ -53,5 +53,20 @@ namespace Example.WCF
         {
             return new DepartmentDTO().MapFromModel(this.repository.Save(department.MapToModel()));
         }
+
+        public EmployeeDTO GetEmployee(Guid employeeId)
+        {
+            return new EmployeeDTO().MapFromModel(this.repository.GetEmployeeById(employeeId));
+        }
+
+        public DepartmentDTO GetDepartmentById(Guid departmentId)
+        {
+            return new DepartmentDTO().MapFromModel(this.repository.GetDepartmentById(departmentId));
+        }
+
+        public void SaveEmployee(EmployeeDTO employee, DepartmentDTO department)
+        {
+            this.repository.Save(employee.MapToModel(department.MapToModel()));
+        }
     }
 }

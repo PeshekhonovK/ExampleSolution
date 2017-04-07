@@ -21,6 +21,15 @@ namespace Example.WCF.Interfaces
         ICollection<DepartmentDTO> GetDepartments();
 
         [OperationContract]
+        DepartmentDTO GetDepartmentById(Guid departmentId);
+
+        [OperationContract]
         DepartmentDTO UpdateDepartment(DepartmentDTO department);
+
+        [OperationContract]
+        EmployeeDTO GetEmployee(Guid employeeId);
+
+        [OperationContract]
+        void SaveEmployee(EmployeeDTO employee, DepartmentDTO department);
     }
 }

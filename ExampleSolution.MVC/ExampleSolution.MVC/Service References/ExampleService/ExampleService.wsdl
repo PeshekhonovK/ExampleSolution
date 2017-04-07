@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExampleService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50503/ExampleService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50503/ExampleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50503/ExampleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Example.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExampleService_GetEmployeesByDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesByDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetEmployeesByDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesByDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_CreateNewEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_CreateNewEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_CreateNewDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_CreateNewDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetDepartmentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentById" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetDepartmentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_UpdateDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_UpdateDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_SaveEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExampleService_SaveEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExampleService">
+    <wsdl:operation name="GetEmployeesByDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/GetEmployeesByDepartment" message="tns:IExampleService_GetEmployeesByDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/GetEmployeesByDepartmentResponse" message="tns:IExampleService_GetEmployeesByDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/CreateNewEmployee" message="tns:IExampleService_CreateNewEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/CreateNewEmployeeResponse" message="tns:IExampleService_CreateNewEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/CreateNewDepartment" message="tns:IExampleService_CreateNewDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/CreateNewDepartmentResponse" message="tns:IExampleService_CreateNewDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/GetDepartments" message="tns:IExampleService_GetDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/GetDepartmentsResponse" message="tns:IExampleService_GetDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/GetDepartmentById" message="tns:IExampleService_GetDepartmentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/GetDepartmentByIdResponse" message="tns:IExampleService_GetDepartmentById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/UpdateDepartment" message="tns:IExampleService_UpdateDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/UpdateDepartmentResponse" message="tns:IExampleService_UpdateDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/GetEmployee" message="tns:IExampleService_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/GetEmployeeResponse" message="tns:IExampleService_GetEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExampleService/SaveEmployee" message="tns:IExampleService_SaveEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExampleService/SaveEmployeeResponse" message="tns:IExampleService_SaveEmployee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExampleService" type="tns:IExampleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEmployeesByDepartment">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/GetEmployeesByDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewEmployee">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/CreateNewEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewDepartment">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/CreateNewDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentById">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/GetDepartmentById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartment">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/UpdateDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployee">
+      <soap:operation soapAction="http://tempuri.org/IExampleService/SaveEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExampleService">
+    <wsdl:port name="BasicHttpBinding_IExampleService" binding="tns:BasicHttpBinding_IExampleService">
+      <soap:address location="http://localhost:50503/ExampleService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

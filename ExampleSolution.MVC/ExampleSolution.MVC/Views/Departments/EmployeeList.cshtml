@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ExampleSolution.MVC.Models.Department
+
+<h1>Department "@Model.Name"</h1>
+
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>FIO</th>
+        <th>Salary</th>
+    </tr>
+    <thead>
+    </thead>
+    <tbody>
+    @foreach (var employee in Model.Employees)
+    {
+        <tr>
+            <td>@Html.ActionLink($"{employee.LastName}, {employee.FirstName} {employee.MiddleName}", "Employee", new { Controller = "Employee", employeeId = employee.Id, departmentId = Model.Id })</td>
+            <td>@employee.Salary</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@Html.ActionLink("New Employee", "Employee", new { Controller = "Employee", departmentId = Model.Id }))

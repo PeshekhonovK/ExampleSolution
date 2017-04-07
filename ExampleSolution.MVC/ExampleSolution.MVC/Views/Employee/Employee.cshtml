@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+@model ExampleSolution.MVC.Models.EditEmployeeModel
+    
+@using (Html.BeginForm("Save", "Employee", FormMethod.Post, new { @class = "form-group" }))
+{
+    <fieldset>
+        <legend>Employee</legend>
+        @Html.HiddenFor(x => x.Id)
+        @Html.HiddenFor(x => x.CurrentDepartmentId)
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Salary, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.DepartmentId, Model.AvailableDepartments.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }), new { @class = "form-control" })
+    </fieldset>
+
+    <input type="submit" value="Save">
+}
+
