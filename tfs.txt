@@ -1,0 +1,5 @@
+builds: https://kpeshekhonov1.visualstudio.com/MyFirstProject/_apis/build/builds?definitions=1&statusFilter=completed&$top=1&api-version=2.0
+
+repositories: https://kpeshekhonov1.visualstudio.com/MyFirstProject/_apis/git/repositories?api-version=1.0
+
+commits: https://kpeshekhonov1.visualstudio.com/MyFirstProject/_apis/git/repositories/a4ddb997-1d12-4302-85b8-2064d08306b1/commits?api-version=1.0
