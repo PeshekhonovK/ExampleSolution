@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EmployeeDirectory.DataAccess.Contracts;
 using EmployeeDirectory.Example.BLL.Contracts;
 using EmployeeDirectory.Example.Domain;
+using EmployeeDirectory.Example.Domain.Contracts;
 
 namespace EmployeeDirectory.Example.BLL.Implementation
 {
@@ -20,9 +21,9 @@ namespace EmployeeDirectory.Example.BLL.Implementation
             return this.EmployeeDataAccess.GetAsync();
         }
 
-        public Task<Employee> GetAsync(int employeeId)
+        public Task<Employee> GetAsync(IEmployeeIdentity employee)
         {
-            return this.EmployeeDataAccess.GetAsync(employeeId);
+            return this.EmployeeDataAccess.GetAsync(employee);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace EmployeeDirectory.Example.Client.DTO.Create
         
         public string LastName { get; set; }
         
-        public string MiddleMane { get; set; }
+        public string MiddleName { get; set; }
         
         public int? DepartmentId { get; set; }
     }

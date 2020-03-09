@@ -1,6 +1,8 @@
+using EmployeeDirectory.Example.Domain.Contracts;
+
 namespace EmployeeDirectory.Example.Domain
 {
-    public class Employee
+    public class Employee : IDepartmentContainer
     {
         public int Id { get; set; }
         
@@ -15,5 +17,7 @@ namespace EmployeeDirectory.Example.Domain
         public int VacationDaysLeft { get; set; }
         
         public decimal Salary { get; set; }
+        
+        int? IDepartmentContainer.DepartmentId => this.Department.Id;
     }
 }

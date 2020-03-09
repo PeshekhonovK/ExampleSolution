@@ -1,4 +1,5 @@
 ﻿using System;
+using EmployeeDirectory.Example.Domain.Contracts;
 
 namespace EmployeeDirectory.Example.Domain
 {

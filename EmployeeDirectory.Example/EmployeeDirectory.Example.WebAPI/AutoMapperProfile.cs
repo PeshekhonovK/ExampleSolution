@@ -1,7 +1,7 @@
 using AutoMapper;
 using EmployeeDirectory.Example.Client.DTO.Create;
 using EmployeeDirectory.Example.Client.DTO.Read;
-using EmployeeDirectory.Example.Client.DTO.Update;
+using EmployeeDirectory.Example.Client.Requests.Update;
 using EmployeeDirectory.Example.Domain.Models;
 
 namespace EmployeeDirectory.Example.WebAPI
@@ -16,6 +16,7 @@ namespace EmployeeDirectory.Example.WebAPI
             this.CreateMap<Domain.Department, DepartmentDTO>();
             this.CreateMap<EmployeeCreateDTO, EmployeeUpdateModel>();
             this.CreateMap<EmployeeUpdateDTO, EmployeeUpdateModel>();
+            this.CreateMap<EmployeeUpdateModel, Example.DataAccess.Entities.Employee>();
         }
     }
 }

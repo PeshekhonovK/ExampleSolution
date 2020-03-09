@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDirectory.Example.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDirectory.Example.DataAccess", "EmployeeDirectory.Example.DataAccess\EmployeeDirectory.Example.DataAccess.csproj", "{472D42BE-5856-4770-906B-4E00B3C2201D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDirectory.Example.BLL.Tests.Unit", "EmployeeDirectory.Example.BLL.Tests.Unit\EmployeeDirectory.Example.BLL.Tests.Unit.csproj", "{5D9DC882-67DC-4379-8D5E-6A9F47CEA7D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{472D42BE-5856-4770-906B-4E00B3C2201D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{472D42BE-5856-4770-906B-4E00B3C2201D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{472D42BE-5856-4770-906B-4E00B3C2201D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9DC882-67DC-4379-8D5E-6A9F47CEA7D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9DC882-67DC-4379-8D5E-6A9F47CEA7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9DC882-67DC-4379-8D5E-6A9F47CEA7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9DC882-67DC-4379-8D5E-6A9F47CEA7D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

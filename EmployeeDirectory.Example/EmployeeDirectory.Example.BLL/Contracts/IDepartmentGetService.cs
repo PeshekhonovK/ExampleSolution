@@ -1,13 +1,11 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using EmployeeDirectory.Example.Domain;
 using EmployeeDirectory.Example.Domain.Contracts;
 
 namespace EmployeeDirectory.Example.BLL.Contracts
 {
-    public interface IEmployeeGetService
+    public interface IDepartmentGetService
     {
-        Task<IEnumerable<Employee>> GetAsync();
-        Task<Employee> GetAsync(IEmployeeIdentity employee);
+        Task ValidateAsync(IDepartmentContainer departmentContainer);
     }
 }

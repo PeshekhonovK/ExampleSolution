@@ -40,6 +40,8 @@ namespace EmployeeDirectory.Example.WebAPI
             // BLL
             services.Add(new ServiceDescriptor(typeof(IEmployeeCreateService), typeof(EmployeeCreateService), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IEmployeeGetService), typeof(EmployeeGetService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(IEmployeeUpdateService), typeof(EmployeeUpdateService), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(IDepartmentGetService), typeof(DepartmentGetService), ServiceLifetime.Scoped));
             
             // DataAccess
             services.Add(new ServiceDescriptor(typeof(IEmployeeDataAccess), typeof(EmployeeDataAccess), ServiceLifetime.Transient));

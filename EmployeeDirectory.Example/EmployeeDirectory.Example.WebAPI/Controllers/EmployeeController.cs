@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,7 +8,9 @@ using EmployeeDirectory.Example.BLL.Contracts;
 using EmployeeDirectory.Example.Client.DTO;
 using EmployeeDirectory.Example.Client.DTO.Create;
 using EmployeeDirectory.Example.Client.DTO.Read;
+using EmployeeDirectory.Example.Client.Requests.Update;
 using EmployeeDirectory.Example.Domain;
+using EmployeeDirectory.Example.Domain.Contracts;
 using EmployeeDirectory.Example.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -46,7 +49,7 @@ namespace EmployeeDirectory.Example.WebAPI.Controllers
 
         [HttpPatch]
         [Route("")]
-        public async Task<EmployeeDTO> PatchAsync(EmployeeCreateDTO employee)
+        public async Task<EmployeeDTO> PatchAsync(EmployeeUpdateDTO employee)
         {
             this.Logger.LogTrace($"{nameof(this.PutAsync)} called");
 
@@ -70,7 +73,7 @@ namespace EmployeeDirectory.Example.WebAPI.Controllers
         {
             this.Logger.LogTrace($"{nameof(this.GetAsync)} called for {employeeId}");
 
-            return this.Mapper.Map<EmployeeDTO>(await this.EmployeeGetService.GetAsync(employeeId));
+            return this.Mapper.Map<EmployeeDTO>(await this.EmployeeGetService.GetAsync(new EmployeeIdentityModel(employeeId)));
         }
     }
 }

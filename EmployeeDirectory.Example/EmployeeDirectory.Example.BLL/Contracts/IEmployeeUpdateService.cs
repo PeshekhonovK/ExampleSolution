@@ -6,6 +6,6 @@ namespace EmployeeDirectory.Example.BLL.Contracts
 {
     public interface IEmployeeUpdateService
     {
-        Task<Employee> UpdateAsync(EmployeeUpdateModel map);
+        Task<Employee> UpdateAsync(EmployeeUpdateModel employee);
     }
 }

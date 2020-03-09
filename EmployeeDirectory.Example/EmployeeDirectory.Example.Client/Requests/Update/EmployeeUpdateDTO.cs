@@ -1,6 +1,6 @@
 using EmployeeDirectory.Example.Client.DTO.Create;
 
-namespace EmployeeDirectory.Example.Client.DTO.Update
+namespace EmployeeDirectory.Example.Client.Requests.Update
 {
     public class EmployeeUpdateDTO : EmployeeCreateDTO
     {

@@ -3,6 +3,7 @@ using AutoMapper;
 using EmployeeDirectory.DataAccess.Context;
 using EmployeeDirectory.DataAccess.Contracts;
 using EmployeeDirectory.Example.Domain;
+using EmployeeDirectory.Example.Domain.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeDirectory.DataAccess.Implementations
@@ -18,9 +19,11 @@ namespace EmployeeDirectory.DataAccess.Implementations
             this.Mapper = mapper;
         }
 
-        public async Task<Department> GetByAsync(int departmentId)
+        public async Task<Department> GetByAsync(IDepartmentContainer department)
         {
-            return this.Mapper.Map<Department>(await this.Context.Department.FirstOrDefaultAsync(x => x.Id == departmentId));
+            return department.DepartmentId.HasValue 
+                ? this.Mapper.Map<Department>(await this.Context.Department.FirstOrDefaultAsync(x => x.Id == department.DepartmentId)) 
+                : null;
         }
     }
 }
