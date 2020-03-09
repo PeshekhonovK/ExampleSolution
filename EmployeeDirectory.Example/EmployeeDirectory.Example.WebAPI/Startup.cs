@@ -9,7 +9,6 @@ using EmployeeDirectory.DataAccess.Contracts;
 using EmployeeDirectory.DataAccess.Implementations;
 using EmployeeDirectory.Example.BLL.Contracts;
 using EmployeeDirectory.Example.BLL.Implementation;
-using EmployeeDirectory.Example.Client.DTO.Create;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

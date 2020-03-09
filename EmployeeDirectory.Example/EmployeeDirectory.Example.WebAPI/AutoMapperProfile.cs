@@ -1,6 +1,6 @@
 using AutoMapper;
-using EmployeeDirectory.Example.Client.DTO.Create;
 using EmployeeDirectory.Example.Client.DTO.Read;
+using EmployeeDirectory.Example.Client.Requests.Create;
 using EmployeeDirectory.Example.Client.Requests.Update;
 using EmployeeDirectory.Example.Domain.Models;
 

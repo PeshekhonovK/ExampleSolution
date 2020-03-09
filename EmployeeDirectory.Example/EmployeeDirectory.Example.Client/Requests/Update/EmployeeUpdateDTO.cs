@@ -1,4 +1,4 @@
-using EmployeeDirectory.Example.Client.DTO.Create;
+using EmployeeDirectory.Example.Client.Requests.Create;
 
 namespace EmployeeDirectory.Example.Client.Requests.Update
 {
